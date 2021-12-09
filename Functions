@@ -1,16 +1,17 @@
 <?php
-    function BinaryToDecimal($binary){
-        $binary = (string) $binary;
+    function convertbintodec($binary){
+        /*$binary = (string) $binary;
         $numbers = str_split ($binary);
         $reversed = array_reverse ($numbers);
-        $lenght = strlen ($binary);
+        $lenght = strlen ($binary);*/
+        $length = (int)(log ($binary + 1, 10) + 1);
         for ($i = $lenght - 1; $i >= 0; $i--){
             if ($reversed{$i} == '1') $decimal = $decimal + Grade(2, $i);
         }
         return $decimal;
     }
 
-    function DecimalToBinary($decimal){
+    function convertdectobin($decimal){
         $i = "";
         while (floor ($decimal) > 0){
             $i .= $decimal % 2;
@@ -18,24 +19,27 @@
         }
         return strrev ($i);
     }
-    function Fibonacci($n){
-        $fib1 = 1;
-        $fib2 = 1;
-        for ($i = 3; $i <= $n; $i++){
-            $fibn = $fib1 + $fib2;
-            $fib1 = $fib2;
-            $fib2 = $fibn;
+    function fibonacci($j){
+        $fibminustwo = 1;
+        $fibminusone = 1;
+        for ($i = 3; $i <= $j; $i++){
+            $fibsum = $fibminustwo + $fibminusone;
+            $fibminustwo = $fibminusone;
+            $fibminusone = $fibsum;
         }
-        return $fibn;
+        return $fibsum;
     }
 
-    function Grade($n, $m){
+    function grade($num, $grade){
         $result = 1;
-        for ($i = 0; $i < $m; $i++){
-            $result *= $n;
+        for ($i = 0; $i < $grade; $i++){
+            $result *= $num;
         }
-        if ($m == 0) {
+        if ($grade == 0) {
             $result = 1;
         }
         return $result;
     }
+
+    echo Fibonacci(9);
+?>
