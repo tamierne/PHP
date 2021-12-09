@@ -1,0 +1,41 @@
+<?php
+    function BinaryToDecimal($binary){
+        $binary = (string) $binary;
+        $numbers = str_split ($binary);
+        $reversed = array_reverse ($numbers);
+        $lenght = strlen ($binary);
+        for ($i = $lenght - 1; $i >= 0; $i--){
+            if ($reversed{$i} == '1') $decimal = $decimal + Grade(2, $i);
+        }
+        return $decimal;
+    }
+
+    function DecimalToBinary($decimal){
+        $i = "";
+        while (floor ($decimal) > 0){
+            $i .= $decimal % 2;
+            $decimal /= 2;
+        }
+        return strrev ($i);
+    }
+    function Fibonacci($n){
+        $fib1 = 1;
+        $fib2 = 1;
+        for ($i = 3; $i <= $n; $i++){
+            $fibn = $fib1 + $fib2;
+            $fib1 = $fib2;
+            $fib2 = $fibn;
+        }
+        return $fibn;
+    }
+
+    function Grade($n, $m){
+        $result = 1;
+        for ($i = 0; $i < $m; $i++){
+            $result *= $n;
+        }
+        if ($m == 0) {
+            $result = 1;
+        }
+        return $result;
+    }
