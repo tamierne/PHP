@@ -58,3 +58,43 @@
         if ($checkcount == 4) {return TRUE;}
         else {return FALSE;}
     }
+    
+        function arrayStat($values){
+        $number = count($values);
+        $pos = 0;
+        $neg = 0;
+        $prime = 0;
+        $zero = 0;
+        foreach ($values as $i){
+            if ($i > 0){
+                $pos += 1;
+            }
+            elseif ($i < 0){
+                $neg += 1;
+            }
+            elseif ($$i == 0){
+                $zero += 1;
+            }
+            if (primeCheck($i) == true){
+                $prime += 1;
+            }
+            }
+        $list = [$pos, $neg, $zero/*, $prime */];
+        $listnumber = count($list);
+        for ($i = 0; $i < $listnumber; $i++){
+            $summary[$i] = $list[$i] / count($values) * 100;
+        }
+        return $summary;
+    }
+
+    function primeCheck($num){
+        if ($num < 1 || is_int($num) == false){
+            return false;
+        }
+        for ($i = 2; $i < $num; $i++){
+            if ($num % $i == 0){
+                return false;
+            }
+        }
+        return true;    
+    }       
