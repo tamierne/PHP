@@ -22,10 +22,10 @@
         return strrev ($i);
     }
 
-    function fibonacci($j){
+    function fibonacci($num){
         $fibminustwo = 1;
         $fibminusone = 1;
-        for ($i = 3; $i <= $j; $i++){
+        for ($i = 3; $i <= $num; $i++){
             $fibsum = $fibminustwo + $fibminusone;
             $fibminustwo = $fibminusone;
             $fibminusone = $fibsum;
@@ -54,6 +54,6 @@
                $checkcount += 1;
            }
         }
-        if ($checkcount == 4) {echo 'IP is in range';}
-        else echo 'IP is not in range';
+        if ($checkcount == 4) {return TRUE;}
+        else {return FALSE;}
     }
