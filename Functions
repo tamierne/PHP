@@ -86,7 +86,23 @@
         }
         return $summary;
     }
-
+    
+    function sortArray($values){
+        $number = count($values);
+        do{
+            $switch = false;
+            for ($i = 0; $i < $number; $i++){
+                if ($values[$i] > $values[$i + 1]){
+                    $bubble = $values[$i];
+                    $values[$i] = $values[$i + 1];
+                    $values[$i + 1] = $bubble;
+                    $switch = true;
+                }
+            }
+        } while ($switch == true);
+        return $values;
+    }
+    
     function primeCheck($num){
         if ($num < 1 || is_int($num) == false){
             return false;
