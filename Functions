@@ -48,8 +48,9 @@
         $arraytocheck = explode(".", $iptocheck);
         $arraymin = explode(".", $ipmin);
         $arraymax = explode(".", $ipmax);
+        $numberofelements = count($arraytocheck);
         $checkcount = 0;
-        for ($i = 0; $i <= 3; $i++){
+        for ($i = 0; $i <= $numberofelements; $i++){
             if ($arraytocheck[$i] >= $arraymin[$i] && $arraytocheck[$i] <= $arraymax[$i]){
                $checkcount += 1;
            }
