@@ -59,7 +59,7 @@
         else {return FALSE;}
     }
     
-        function arrayStat($values){
+/*        function arrayStat($values){
         $number = count($values);
         $pos = 0;
         $neg = 0;
@@ -86,7 +86,8 @@
         }
         return $summary;
     }
-    
+*/
+
     function sortArray($values){
         $number = count($values);
         do{
@@ -113,4 +114,4 @@
             }
         }
         return true;    
-    }       
+    }
