@@ -1,1 +1,44 @@
 <?php
+    function isNumberPositive($numberToCheck){
+        return $numberToCheck > 0;
+    }
+
+    function isNumberNegative($numberToCheck){
+        return $numberToCheck < 0;
+    }
+
+    function isNumberZero($numberToCheck){
+        return $numberToCheck == 0;
+    }
+
+    function isNumberPrime($num){
+        if ($num < 1 || is_int($num) == false){
+            return false;
+        }
+        for ($i = 2; $i < $num; $i++){
+            if ($num % $i == 0){
+                return false;
+            }
+        }
+        return true;    
+    }
+      
+    function countArrayValuesByCallable(callable $callable, $array, $count = 0, $check = 0){
+        $valueToCheck = $array[$count];
+        if ($count < count($array)){
+            if ($callable($valueToCheck) == true){
+                return countArrayValuesByCallable($callable, $array, $count + 1, $check + 1);
+            }
+            return countArrayValuesByCallable($callable, $array, $count + 1, $check + 0);
+        }
+        return $check;
+    }
+    
+    function arraySummary($values){
+        $positiveNumbers = countArrayValuesByCallable("isNumberPositive", $values);
+        $negativeNumbers = countArrayValuesByCallable("isNumberNegative", $values);
+        $zeroNumbers = countArrayValuesByCallable("isNumberZero", $values);
+        $primeNumbers = countArrayValuesByCallable("isNumberPrime", $values);
+        return $arraySummary = [$positiveNumbers, $negativeNumbers, $zeroNumbers, $primeNumbers];
+        $sum = count($values);
+    }
