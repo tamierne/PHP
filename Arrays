@@ -40,7 +40,6 @@
         $zeroNumbers = countArrayValuesByCallable("isNumberZero", $values);
         $primeNumbers = countArrayValuesByCallable("isNumberPrime", $values);
         return $arraySummary = [$positiveNumbers, $negativeNumbers, $zeroNumbers, $primeNumbers];
-        $sum = count($values);
     }
 
     function percentageCount($array){
@@ -50,4 +49,44 @@
             $result[$i] = $summary[$i] / $sum * 100;
         }
         return $result;
+    }
+
+    function percentageCountRec($array, $count = 0){
+        $summary = arraySummary($array);
+        $sum = count($array);
+        if ($count < count($summary)){
+            $result[$count] = $summary[$count] / $sum * 100;
+            return percentageCountRec($array, $count + 1);
+        }
+        return $result;
+    }
+
+    function sortArrayMinToMax($values){
+        do{
+            $switch = false;
+            for ($i = 0; $i < count($values); $i++){
+                if ($values[$i] > $values[$i + 1]){
+                    $bubble = $values[$i];
+                    $values[$i] = $values[$i + 1];
+                    $values[$i + 1] = $bubble;
+                    $switch = true;
+                }
+            }
+        } while ($switch == true);
+        return $values;
+    }
+
+    function sortArrayMaxToMin($values){
+        do{
+            $switch = false;
+            for ($i = 0; $i < count($values); $i++){
+                if ($values[$i] < $values[$i + 1]){
+                    $bubble = $values[$i];
+                    $values[$i] = $values[$i + 1];
+                    $values[$i + 1] = $bubble;
+                    $switch = true;
+                }
+            }
+        } while ($switch == true);
+        return $values;
     }
