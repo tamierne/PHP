@@ -3,8 +3,7 @@
         $decimal = 0;
         $grade = 0;
         while ($binary > 0){
-            $i = fmod ($binary, 10);
-            if ($i == 1){
+            if (fmod ($binary, 10) == 1){
                 $decimal = $decimal + grade(2, $grade);
             }
             $grade += 1;
@@ -14,7 +13,7 @@
     }
 
     function convertBinToDecRec($binary){
-        if ($binary == 0) {
+        if ($binary === 0) {
             return 0;
         }
             return $binary % 10 + 2 * convertBinToDec($binary / 10);
@@ -30,7 +29,7 @@
     }
 
     function convertDecToBinRec($decimal){
-        if ($decimal == 0){
+        if ($decimal === 0){
             return 0;
         }
         return ($decimal % 2) + 10 * convertDecToBinRec($decimal / 2);
@@ -59,7 +58,7 @@
         for ($i = 0; $i < $grade; $i++){
             $result *= $num;
         }
-        if ($grade == 0) {
+        if ($grade === 0) {
             $result = 1;
         }
         return $result;
@@ -67,7 +66,7 @@
 
     function gradeRec($number, $grade){
         if ($grade !== 0){
-            return $number * Grade($number, $grade - 1);
+            return $number * grade($number, $grade - 1);
         }
         return 1;
     }
@@ -82,7 +81,7 @@
                $checkcount += 1;
            }
         }
-        if ($checkcount == 4){
+        if ($checkcount === 4){
             return true;
         }
         else {
@@ -91,7 +90,7 @@
     }
 
     function checkIPRec($iptocheck, $ipmin, $ipmax, $count = 0){
-        if ($count == 4){
+        if ($count === 4){
             return true;
         }
         $arraytocheck = $iptocheck[$count];
