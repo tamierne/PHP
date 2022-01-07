@@ -42,3 +42,12 @@
         return $arraySummary = [$positiveNumbers, $negativeNumbers, $zeroNumbers, $primeNumbers];
         $sum = count($values);
     }
+
+    function percentageCount($array){
+        $summary = arraySummary($array);
+        $sum = count($array);
+        for ($i = 0; $i < count($summary); $i++){
+            $result[$i] = $summary[$i] / $sum * 100;
+        }
+        return $result;
+    }
