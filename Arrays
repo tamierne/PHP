@@ -90,3 +90,10 @@
         } while ($switch == true);
         return $values;
     }
+    
+    function percentageCountByType($array, $numberType){
+        $sum = count($array);
+        $numbers = countArrayValuesByCallable("$numberType", $array);
+        $result = $numbers / $sum * 100;
+        return $result;
+    }
