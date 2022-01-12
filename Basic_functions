@@ -81,21 +81,15 @@
                $checkcount += 1;
            }
         }
-        if ($checkcount === 4){
-            return true;
-        }
-            return false;
+        return $count === count($arraytocheck);
     }
 
     function checkIPRec($iptocheck, $ipmin, $ipmax, $count = 0){
-        if ($count === 4){
-            return true;
-        }
         $arraytocheck = $iptocheck[$count];
         $arraymin = $ipmin[$count];
         $arraymax = $ipmax[$count];
         if ($arraytocheck >= $arraymin && $arraytocheck <= $arraymax){
             return checkIPRec($iptocheck, $ipmin, $ipmax, $count + 1);
         }
-        return false;
+        return $count === count($arraytocheck);
     }
