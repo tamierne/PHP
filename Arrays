@@ -107,3 +107,23 @@
         }
         return $result;
     }
+
+    function transposeArray(){
+        for ($i = 0; $i < count($array); $i++){
+            for ($j = $i + 1; $j < count($array); $j++){
+                $bubble = $array[$i][$j];
+                $array[$i][$j] = $array[$j][$i];
+                $array[$j][$i] = $bubble;
+            }
+        }
+        return $array;
+    }
+
+    function combineArray(){
+        for ($i = 0; $i < count($arrayFirst); $i++){
+            for ($j = 0; $j < count($arrayFirst); $j++){
+                $arrayResult[$i][$j] = $arrayFirst[$i][$j] + $arraySecond[$i][$j];
+            }
+        }
+        return $arrayResult;
+    }
