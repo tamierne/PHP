@@ -97,3 +97,13 @@
         $result = $numbers / $sum * 100;
         return $result;
     }
+
+    function recursiveOutput($array, &$result = ''){
+        foreach ($array as $key => $value){
+            $result .= $value;
+            if (is_array($value)){
+                recursiveOutput($value, $result);
+            }
+        }
+        return $result;
+    }
